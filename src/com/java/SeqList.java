@@ -1,4 +1,4 @@
-package MySeqList;
+package com.java;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -7,6 +7,7 @@ public class SeqList<T> extends AbsList implements Iterable {
 
     private int incrementSize;
     protected T[] data;
+    Iterator<T> itr;
 
     public SeqList() {
         this(16);
@@ -18,11 +19,13 @@ public class SeqList<T> extends AbsList implements Iterable {
         length = 0;
         incrementSize = 0;
         data = (T[]) new Object[capacity];
+        itr = new MyIterator();
     }
     public SeqList(T[] elem){
         length = elem.length;
         incrementSize = 0;
         data = Arrays.copyOf(elem, length);
+        itr = new MyIterator();
     }
     public void setInc(int inc){
         incrementSize = inc;
@@ -177,15 +180,10 @@ public class SeqList<T> extends AbsList implements Iterable {
         }
         return a;
     }
-    ////////////////////////////////////////////////////////////////有问题
-    @Override
-    public Iterable iterable() {
-        return null;
-    }
-    ///////////////////////////////////////////////////////////////有问题
     @Override
     public Iterator iterator() {
-       return new MyIterator();
+//       return new MyIterator();
+        return this.itr;
     }
     class MyIterator implements Iterator<T>{
         private int index = 0;

@@ -1,4 +1,4 @@
-package MySeqList;
+package com.java;
 
 public interface List<T> {
 

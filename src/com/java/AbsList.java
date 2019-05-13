@@ -1,4 +1,6 @@
-package MySeqList;
+package com.java;
+
+import java.util.Iterator;
 
 public abstract class AbsList<T> implements Iterable, List {
 
@@ -8,7 +10,7 @@ public abstract class AbsList<T> implements Iterable, List {
     abstract public void add(int i, T x);
     abstract public void clear();
     abstract public T remove(int i);
-    abstract public Iterable iterable();
+    abstract public Iterator<T> iterator();
 
     @Override
     public boolean isEmpty() {
